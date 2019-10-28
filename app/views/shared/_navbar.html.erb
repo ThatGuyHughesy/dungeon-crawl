@@ -1,0 +1,33 @@
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <span class="navbar-item">
+        <%= image_tag("logo.svg", :height => "48", :class => "d-inline-block align-top") %>
+      </span>
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="navbar" class="navbar-menu">
+      <% if user_signed_in? %>
+        <div class="navbar-start has-text-centered-touch">
+          <%= active_link_to("Campaigns", campaigns_path, class: "navbar-item", class_active: "is-active") %>
+        </div>
+      <% end %>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <% if user_signed_in? %>
+              <%= link_to("Logout", destroy_user_session_path, method: :delete, class: "button is-white is-outlined is-fullwidth-touch") %>
+            <% else %>
+              <%= link_to("Login", new_user_session_path, class: "button is-white is-outlined is-fullwidth-touch") %>
+              <%= link_to("Register Now", new_user_registration_path, class: "button is-link has-text-weight-bold is-fullwidth-touch") %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

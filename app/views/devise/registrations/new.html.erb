@@ -1,0 +1,40 @@
+<div class="columns">
+  <div class="column is-half is-fullheight has-background-dark has-content-vcentered has-content-hcentered">
+    <%= image_tag("logo.svg", :width => "300px") %>
+  </div>
+  <div class="column is-half is-fullheight has-background-white has-content-vcentered">
+    <div class="container">
+      <div class="form">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.label :email, class: "label" %>
+            <div class="control">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input", required: "true" %>
+            </div>
+          </div>
+          <div class="field">
+            <%= f.label :password, class: "label" %>
+            <div class="control">
+              <%= f.password_field :password, autocomplete: "new-password", class: "input", required: "true" %>
+            </div>
+            <p class="help">6 characters minimum.</p>
+          </div>
+          <div class="field">
+            <%= f.label :password_confirmation, class: "label" %>
+            <div class="control">
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input", required: "true" %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <%= f.submit "Register", class: "button is-link is-fullwidth" %>
+            </div>
+          </div>
+          <div class="field has-text-centered">
+            <%= render "devise/shared/links" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="columns">
+  <div class="column is-half is-fullheight has-background-dark has-content-vcentered has-content-hcentered">
+    <%= image_tag("logo.svg", :width => "300px") %>
+  </div>
+  <div class="column is-half is-fullheight has-background-white has-content-vcentered">
+    <div class="container">
+      <div class="form">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="field">
+            <%= f.label :email, class: "label" %>
+            <div class="control">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input", required: "true" %>
+            </div>
+          </div>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+          <div class="field">
+            <%= f.label :password, class: "label" %>
+            <div class="control">
+              <%= f.password_field :password, autocomplete: "new-password", class: "input" %>
+            </div>
+            <p class="help">Leave blank if you don"t want to change it.</p>
+          </div>
+          <div class="field">
+            <%= f.label :password_confirmation, class: "label" %>
+            <div class="control">
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
+            </div>
+          </div>
+          <div class="field">
+            <%= f.label :current_password, class: "label" %>
+            <div class="control">
+              <%= f.password_field :current_password, autocomplete: "current-password", class: "input" %>
+            </div>
+            <p class="help">We need your current password to confirm your changes.</p>
+          </div>
+          <div class="field">
+            <div class="control" style="padding-top: 0.5rem;">
+              <%= f.submit "Update", class: "button is-link is-fullwidth" %>
+            </div>
+          </div>
+        <% end %>
+        <div class="is-divider" data-content="Unhappy With Jester?"></div>
+        <%= button_to "Delete My Account", registration_path(resource_name), class: "button is-danger is-fullwidth", data: { confirm: "Are you sure?" }, method: :delete %>
+        <p class="has-text-centered" style="padding-top: 0.5rem;">
+          <%= link_to "Back", :back %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

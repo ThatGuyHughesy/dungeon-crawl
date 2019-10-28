@@ -1,1 +1,112 @@
-@import "bootstrap/scss/bootstrap.scss";
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto+Slab|IBM+Plex+Sans');
+@import "variables";
+@import "bulma/sass/utilities/_all";
+@import "bulma/sass/base/_all";
+@import "bulma/sass/elements/_all";
+@import "bulma/sass/form/_all";
+@import "bulma/sass/components/_all";
+@import "bulma/sass/grid/_all";
+@import "bulma/sass/layout/_all";
+@import "bulma-extensions/dist/css/bulma-extensions.min.css";
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/solid';
+
+body {
+  background-color: #fdfffc;
+  min-height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #110e45;
+
+  &.is-dark {
+    .navbar-start {
+      a.navbar-item.is-active {
+        background-color: #0c0a30;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.breadcrumb {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero {
+  background-color: #110e45;
+}
+
+.columns {
+  margin: 0;
+
+  &:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+
+.form {
+  width: 100%;
+}
+
+.notifications {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  min-width: 300px;
+  max-width: 350px;
+}
+
+.is-fullheight {
+  height: 100vh;
+}
+
+.has-content-vcentered {
+  display: flex;
+  align-items: center;
+}
+
+.has-content-hcentered {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1023px) {
+  .navbar-menu {
+    background-color: $dark;
+
+    a.navbar-item, a.navbar-link {
+      margin: 0 0.75rem;
+    }
+  }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .is-fullwidth-touch {
+    display: flex;
+    width: 100%;
+  }
+
+  .buttons .button:not(:last-child).is-fullwidth-touch {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .navbar {
+    .container {
+      padding: 0 0.75rem;
+    }
+  }
+
+  .form {
+    max-width: 500px;
+    margin: auto;
+  }
+}
