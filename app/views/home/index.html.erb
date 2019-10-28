@@ -1,0 +1,14 @@
+<%= render partial: "shared/navbar" %>
+<section class="hero is-medium is-bold">
+  <div class="hero-body has-text-centered">
+    <div class="container">
+      <h1 class="title has-text-white">
+        <%= image_tag("logo.svg", :width => "300px") %>
+      </h1>
+      <h2 class="subtitle has-text-white">
+        Your adventure awaits you...
+      </h2>
+      <%= link_to("Join Us Today", new_user_registration_path, class: "button is-link has-text-weight-bold") %>
+    </div>
+  </div>
+</section>

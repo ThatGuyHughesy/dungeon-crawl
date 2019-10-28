@@ -1,0 +1,26 @@
+<%= render partial: "shared/navbar" %>
+<div class="container">
+  <div class="columns is-mobile is-vcentered">
+    <nav class="breadcrumb column is-three-fifths-mobile" aria-label="breadcrumbs">
+      <ul>
+        <li>
+          <%= link_to("Home", root_path) %>
+        </li>
+        <li>
+          <%= link_to("Campaigns", campaigns_path) %>
+        </li>
+        <li class="is-active">
+          <%= link_to(@campaign.name, campaign_path) %>
+        </li>
+      </ul>
+    </nav>
+    <div class="buttons column is-two-fifths-mobile has-text-right">
+      <%= link_to("Edit Campaign", edit_campaign_path, class: "button is-link") %>
+    </div>
+  </div>
+  <div class="columns is-centered">
+    <div class="column">
+      <%= render "form", campaign: @campaign, disabled: true %>
+    </div>
+  </div>
+</div>

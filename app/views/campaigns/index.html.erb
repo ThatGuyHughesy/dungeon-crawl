@@ -1,0 +1,41 @@
+<%= render partial: "shared/navbar" %>
+<div class="container">
+  <div class="columns is-mobile is-vcentered">
+    <nav class="breadcrumb column is-three-fifths-mobile" aria-label="breadcrumbs">
+      <ul>
+        <li>
+          <%= link_to("Home", root_path) %>
+        </li>
+        <li class="is-active">
+          <%= link_to("Campaigns", campaigns_path) %>
+        </li>
+      </ul>
+    </nav>
+    <div class="buttons column is-two-fifths-mobile has-text-right">
+      <%= link_to("Create Campaign", new_campaign_path, class: "button is-link") %>
+    </div>
+  </div>
+  <% if @campaigns.exists? %>
+    <div class="columns">
+      <% @campaigns.each do |campaign| %>
+        <div class="column is-full-mobile is-one-third-tablet is-one-quarter-desktop">
+          <article class="message is-dark">
+            <div class="message-header">
+              <p><%= campaign.name %></p>
+              <%= link_to("Delete", campaign_path(campaign.id), method: :delete, class: "delete", data: { confirm: "Are you sure?" }) %>
+            </div>
+            <div class="message-body">
+              <%= campaign.description %>
+            </div>
+            <%= link_to(edit_campaign_path(campaign.id), class: "button is-link is-fullwidth") do %>
+              <span class="icon is-small">
+                <i class="fas fa-pencil-alt"></i>
+              </span>
+              <span>Edit</span>
+            <% end %>
+          </article>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

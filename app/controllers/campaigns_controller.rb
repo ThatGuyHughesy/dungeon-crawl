@@ -1,39 +1,54 @@
 class CampaignsController < ApplicationController
-  before_action :set_campaign, only: [:show, :update, :destroy]
+  before_action :set_campaign, only: [:show, :edit, :update, :destroy]
 
   # GET /campaigns
   def index
     @campaigns = Campaign.all
-    render json: @campaigns.as_json, status: 200
-  end
-
-  # POST /campaigns
-  def create
-    @campaign = Campaign.create(campaign_params)
-    render json: @campaign.as_json, status: 200
   end
 
   # GET /campaigns/:id
   def show
-    render json: @campaign.as_json, status: 200
   end
 
-  # POST /campaigns/:id
+  # GET /campaigns/new
+  def new
+    @campaign = Campaign.new
+  end
+
+  # GET /campaigns/:id/edit
+  def edit
+  end
+
+  # POST /campaigns
+  def create
+    @campaign = Campaign.new(campaign_params)
+
+    if @campaign.save
+      redirect_to @campaign, notice: 'Campaign was successfully created.'
+    else
+      render :new
+    end
+  end
+
+  # PATCH/PUT /campaigns/:id
   def update
-    @campaign.update(campaign_params)
-    head :no_content
+    if @campaign.update(campaign_params)
+      redirect_to @campaign, notice: 'Campaign was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   # DELETE /campaigns/:id
   def destroy
     @campaign.destroy
-    head :no_content
+    redirect_to campaigns_url, notice: 'Campaign was successfully destroyed.'
   end
 
   private
 
   def campaign_params
-    params.permit(:name, :description)
+    params.require(:campaign).permit(:name, :description)
   end
 
   def set_campaign
