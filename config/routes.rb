@@ -4,9 +4,9 @@ Rails.application.routes.draw do
                                   sign_out: 'logout',
                                   sign_up: 'register' }
 
-  authenticated do
-    root to: redirect('campaigns'), as: :authenticated
+  authenticate :user do
     resources :campaigns
+    resources :characters
   end
 
   root to: 'home#index'

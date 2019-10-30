@@ -14,6 +14,7 @@
       <% if user_signed_in? %>
         <div class="navbar-start has-text-centered-touch">
           <%= active_link_to("Campaigns", campaigns_path, class: "navbar-item", class_active: "is-active") %>
+          <%= active_link_to("Characters", characters_path, class: "navbar-item", class_active: "is-active") %>
         </div>
       <% end %>
       <div class="navbar-end">
