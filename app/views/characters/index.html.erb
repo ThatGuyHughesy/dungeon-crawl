@@ -1,0 +1,41 @@
+<%= render partial: "shared/navbar" %>
+<div class="container">
+  <div class="columns is-mobile is-vcentered">
+    <nav class="breadcrumb column is-three-fifths-mobile" aria-label="breadcrumbs">
+      <ul>
+        <li>
+          <%= link_to("Home", root_path) %>
+        </li>
+        <li class="is-active">
+          <%= link_to("Characters", characters_path) %>
+        </li>
+      </ul>
+    </nav>
+    <div class="buttons column is-two-fifths-mobile has-text-right">
+      <%= link_to("Create Character", new_character_path, class: "button is-link") %>
+    </div>
+  </div>
+  <% if @characters.exists? %>
+    <div class="columns">
+      <% @characters.each do |character| %>
+        <div class="column is-full-mobile is-one-third-tablet is-one-quarter-desktop">
+          <article class="message is-dark">
+            <div class="message-header">
+              <p><%= character.name %></p>
+              <%= link_to("Delete", character_path(character.id), method: :delete, class: "delete", data: { confirm: "Are you sure?" }) %>
+            </div>
+            <div class="message-body">
+              <%= character.character_race().name %> <%= character.character_class().name %>
+            </div>
+            <%= link_to(edit_character_path(character.id), class: "button is-link is-fullwidth") do %>
+              <span class="icon is-small">
+                <i class="fas fa-pencil-alt"></i>
+              </span>
+              <span>Edit</span>
+            <% end %>
+          </article>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

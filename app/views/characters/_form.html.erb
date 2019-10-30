@@ -1,0 +1,29 @@
+<div class="form">
+  <%= form_with(model: character, disabled: disabled) do |f| %>
+    <div class="field">
+      <%= f.label :name, class: "label" %>
+      <div class="control">
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "input", required: "true", disabled: disabled %>
+      </div>
+    </div>
+    <div class="field">
+      <%= f.label :character_race_id, class: "label", value: "Race" %>
+      <div class="select is-fullwidth">
+        <%= f.select :character_race_id, options_for_select(@races, character.character_race_id), {}, { disabled: disabled } %>
+      </div>
+    </div>
+    <div class="field">
+      <%= f.label :character_class_id, class: "label", value: "Class" %>
+      <div class="select is-fullwidth">
+        <%= f.select :character_class_id, options_for_select(@classes, character.character_class_id), {}, { disabled: disabled } %>
+      </div>
+    </div>
+    <% unless disabled %>
+      <div class="field">
+        <div class="control">
+          <%= f.button class: "button is-link is-fullwidth" %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

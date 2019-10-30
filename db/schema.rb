@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_18_145113) do
+ActiveRecord::Schema.define(version: 2019_10_18_152610) do
 
   create_table "campaign_users", force: :cascade do |t|
     t.integer "user_id"
@@ -26,6 +26,34 @@ ActiveRecord::Schema.define(version: 2019_10_18_145113) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "character_classes", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "character_races", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "age"
+    t.string "alignment"
+    t.string "size"
+    t.string "speed"
+    t.string "languages"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "characters", force: :cascade do |t|
+    t.string "name"
+    t.integer "character_race_id"
+    t.integer "character_class_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_class_id"], name: "index_characters_on_character_class_id"
+    t.index ["character_race_id"], name: "index_characters_on_character_race_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -38,4 +66,6 @@ ActiveRecord::Schema.define(version: 2019_10_18_145113) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "characters", "character_classes"
+  add_foreign_key "characters", "character_races"
 end
