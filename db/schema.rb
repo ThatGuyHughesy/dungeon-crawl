@@ -12,18 +12,18 @@
 
 ActiveRecord::Schema.define(version: 2019_10_18_152610) do
 
-  create_table "campaign_users", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "campaign_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "campaigns", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "campaigns_users", id: false, force: :cascade do |t|
+    t.integer "campaign_id", null: false
+    t.integer "user_id", null: false
+    t.index ["campaign_id"], name: "index_campaigns_users_on_campaign_id"
+    t.index ["user_id"], name: "index_campaigns_users_on_user_id"
   end
 
   create_table "character_classes", force: :cascade do |t|

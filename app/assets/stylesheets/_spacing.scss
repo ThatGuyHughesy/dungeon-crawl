@@ -1,0 +1,19 @@
+@import "variables";
+
+@each $size in $sizes {
+  .has-margin-#{index($sizes, $size)} {
+    margin: $size + rem;
+  }
+  .has-padding-#{index($sizes, $size)} {
+    padding: $size + rem;
+  }
+
+  @each $position in $positions {
+    .has-margin-#{$position}-#{index($sizes, $size)} {
+      margin-#{$position}: $size + rem;
+    }
+    .has-padding-#{$position}-#{index($sizes, $size)} {
+      padding-#{$position}: $size + rem;
+    }
+  }
+}

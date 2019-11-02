@@ -25,7 +25,10 @@
               <%= link_to("Delete", character_path(character.id), method: :delete, class: "delete", data: { confirm: "Are you sure?" }) %>
             </div>
             <div class="message-body">
-              <%= character.character_race().name %> <%= character.character_class().name %>
+              <p class="has-text-weight-bold">Race</p>
+              <p><%= character.character_race().name %></p>
+              <p class="has-text-weight-bold has-margin-top-2">Class</p>
+              <p><%= character.character_class().name %></p>
             </div>
             <%= link_to(edit_character_path(character.id), class: "button is-link is-fullwidth") do %>
               <span class="icon is-small">
