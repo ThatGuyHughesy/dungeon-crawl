@@ -1,3 +1,4 @@
+# coding: utf-8
 CharacterRace.create([{ id: 1,
                         name: 'Dwarf',
                         description: 'Your dwarf character has an assortment of inborn abilities, part and parcel of dwarven nature.',
@@ -95,3 +96,12 @@ CharacterClass.create([{ id: 1,
                          name: 'Warlock' },
                        { id: 12,
                          name: 'Wizard' }])
+
+User.create([{ id: 1,
+               email: 'jingle@jester.com',
+               password: 'jinglethosebells',
+               password_confirmation: 'jinglethosebells' },
+             { id: 2,
+               email: 'falconhoof@jester.com',
+               password: 'adventurecall',
+               password_confirmation: 'adventurecall' }])
