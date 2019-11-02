@@ -5,7 +5,7 @@ class CharactersController < ApplicationController
 
   # GET /characters
   def index
-    @characters = Character.all
+    @characters = current_user.characters()
   end
 
   # GET /characters/:id
@@ -24,6 +24,7 @@ class CharactersController < ApplicationController
   # POST /characters
   def create
     @character = Character.new(character_params)
+    @character.user_id = current_user.id
 
     if @character.save
       redirect_to @character, notice: 'Character was successfully created.'

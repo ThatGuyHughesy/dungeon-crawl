@@ -1,0 +1,8 @@
+<div class="notifications">
+  <% flash.each do |key, value| %>
+    <div class="notification <%= flash_class(key) %>">
+      <button class="delete" onclick="this.parentNode.remove();"></button>
+      <%= value %>
+    </div>
+  <% end %>
+</div>
