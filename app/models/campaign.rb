@@ -1,3 +1,3 @@
 class Campaign < ApplicationRecord
-  has_many :campaign_users
+  has_and_belongs_to_many :users
 end
