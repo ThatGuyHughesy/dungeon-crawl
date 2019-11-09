@@ -102,7 +102,8 @@ user = User.create(id: 1,
                    username: 'falconhoof',
                    email: 'falconhoof@jesterdnd.com',
                    password: 'adventurecall',
-                   password_confirmation: 'adventurecall')
+                   password_confirmation: 'adventurecall',
+                   admin: true)
 
 campaign = Campaign.create(id: 1,
                            name: 'Adventure Call',
