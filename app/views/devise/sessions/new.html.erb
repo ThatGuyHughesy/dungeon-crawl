@@ -9,9 +9,9 @@
           <%= render "devise/shared/error_messages", resource: resource %>
 
           <div class="field">
-            <%= f.label :email, class: "label" %>
+            <%= f.label :login, class: "label", value: "Email or Username" %>
             <div class="control">
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input", required: "true" %>
+              <%= f.text_field :login, autofocus: true, autocomplete: "login", class: "input", required: "true" %>
             </div>
           </div>
           <div class="field">
@@ -41,3 +41,4 @@
     </div>
   </div>
 </div>
+<%= devise_error_messages! %>

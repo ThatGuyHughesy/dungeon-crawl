@@ -29,7 +29,7 @@
               <p><%= campaign.description %></p>
               <p class="has-text-weight-bold has-margin-top-2">Users</p>
               <% campaign.users().each do |campaign_user| %>
-                <p><%= campaign_user.email %></p>
+                <p><%= campaign_user.username %></p>
               <% end %>
             </div>
             <%= link_to(edit_campaign_path(campaign.id), class: "button is-link is-fullwidth") do %>

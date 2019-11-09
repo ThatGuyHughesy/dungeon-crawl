@@ -3,7 +3,7 @@ class CampaignsController < ApplicationController
 
   # GET /campaigns
   def index
-    @campaigns = Campaign.all
+    @campaigns = current_user.campaigns()
   end
 
   # GET /campaigns/:id
