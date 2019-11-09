@@ -1,0 +1,37 @@
+# == Schema Information
+#
+# Table name: campaign_invites
+#
+#  id           :integer          not null, primary key
+#  campaign_id  :integer          not null
+#  sender_id    :integer
+#  recipient_id :integer
+#  pending      :boolean
+#  accepted     :datetime
+#  email        :string
+#  token        :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+# Indexes
+#
+#  index_campaign_invites_on_campaign_id  (campaign_id)
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  campaign: one
+  sender_id: 1
+  recipient_id: 1
+  pending: false
+  accepted: 2019-11-09 14:47:17
+  email: MyString
+
+two:
+  campaign: two
+  sender_id: 1
+  recipient_id: 1
+  pending: false
+  accepted: 2019-11-09 14:47:17
+  email: MyString

@@ -1,28 +1,34 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
+
   constraints CanAccessAdmin do
     namespace :admin do
       mount Flipper::UI.app(Flipper) => '/flipper', as: 'flipper'
     end
   end
 
-  devise_for :user, path: 'user',
-                    path_names: { sign_in: 'login',
-                                  sign_out: 'logout',
-                                  sign_up: 'user' },
-                    skip: [:registration]
+  devise_for :users,
+             path: 'user',
+             path_names: { sign_in: 'login',
+                           sign_out: 'logout',
+                           sign_up: 'user' },
+             controllers: { registrations: 'users/registrations' }
 
   constraints CanUserRegister do
     devise_scope :user do
-      get '/user/registration' => 'devise/registrations#new', as: 'new_user_registration'
-      post '/user/registration' => 'devise/registrations#create'
-      put '/user/registration' => 'devise/registrations#update'
-      patch '/user/registration' => 'devise/registrations#update'
-      delete '/user/registration' => 'devise/registrations#destroy'
+      get '/user/registration' => 'users/registrations#new', as: 'new_user_registration'
+      post '/user/registration' => 'users/registrations#create'
+      put '/user/registration' => 'users/registrations#update'
+      patch '/user/registration' => 'users/registrations#update'
+      delete '/user/registration' => 'users/registrations#destroy'
     end
   end
 
   authenticate :user do
-    resources :campaigns
+    resources :campaigns do
+      resources :campaign_invites, only: %i[index create]
+    end
     resources :characters
   end
 

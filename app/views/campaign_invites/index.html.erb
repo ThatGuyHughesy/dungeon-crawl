@@ -1,0 +1,29 @@
+<%= render partial: "shared/navbar" %>
+<div class="container">
+    <div class="columns is-centered">
+        <nav class="breadcrumb column" aria-label="breadcrumbs">
+            <ul>
+                <li>
+                    <%= link_to("Home", root_path) %>
+                </li>
+                <li>
+                    <%= link_to("Campaigns", campaigns_path) %>
+                </li>
+                <li>
+                    <%= link_to(@campaign.name, campaign_path(@campaign.id)) %>
+                </li>
+                <li class="is-active">
+                    <a href="#">Invite Users</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="columns is-centered">
+        <%= render "table", campaign_invites: @campaign_invites %>
+    </div>
+    <div class="columns is-vcentered">
+        <div class="column">
+            <%= render "form", campaign: @campaign %>
+        </div>
+    </div>
+</div>

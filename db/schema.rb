@@ -12,6 +12,19 @@
 
 ActiveRecord::Schema.define(version: 2019_11_09_204539) do
 
+  create_table "campaign_invites", force: :cascade do |t|
+    t.integer "campaign_id", null: false
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.boolean "pending"
+    t.datetime "accepted"
+    t.string "email"
+    t.string "token"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["campaign_id"], name: "index_campaign_invites_on_campaign_id"
+  end
+
   create_table "campaigns", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -87,6 +100,7 @@ ActiveRecord::Schema.define(version: 2019_11_09_204539) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "campaign_invites", "campaigns"
   add_foreign_key "characters", "character_classes"
   add_foreign_key "characters", "character_races"
 end
