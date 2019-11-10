@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+ — 2.6.3
+before_install:
+ - gem install bundler
+install:
+ - bundle install
+script:
+ - bundle exec rake assets:precompile
+ - bundle exec rake test

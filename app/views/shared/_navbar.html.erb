@@ -24,7 +24,9 @@
               <%= link_to("Logout", destroy_user_session_path, method: :delete, class: "button is-white is-outlined is-fullwidth-touch") %>
             <% else %>
               <%= link_to("Login", new_user_session_path, class: "button is-white is-outlined is-fullwidth-touch") %>
-              <%= link_to("Register Now", new_user_registration_path, class: "button is-link has-text-weight-bold is-fullwidth-touch") %>
+              <% if Flipper.enabled?(:public_registration) %>
+                <%= link_to("Register Now", new_user_registration_path, class: "button is-link has-text-weight-bold is-fullwidth-touch") %>
+              <% end %>
             <% end %>
           </div>
         </div>
