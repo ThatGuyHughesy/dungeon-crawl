@@ -1,6 +1,6 @@
 <div class="columns">
   <div class="column is-half is-fullheight has-background-dark has-content-vcentered has-content-hcentered">
-    <%= image_tag("logo.png", :width => "300px") %>
+    <%= image_tag("logo.svg", :width => "300px") %>
   </div>
   <div class="column is-half is-fullheight has-background-white has-content-vcentered">
     <div class="container">
@@ -9,14 +9,14 @@
           <%= render "devise/shared/error_messages", resource: resource %>
           <div class="field">
             <%= f.label :username, class: "label" %>
-            <div class="control">
-              <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "input", required: "true" %>
-            </div>
+             <div class="control">
+               <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "input", required: "true" %>
+             </div>
           </div>
           <div class="field">
             <%= f.label :email, class: "label" %>
             <div class="control">
-              <%= f.email_field :email, autocomplete: "email", class: "input", required: "true" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input", required: "true" %>
             </div>
           </div>
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -57,4 +57,3 @@
     </div>
   </div>
 </div>
-<%= devise_error_messages! %>

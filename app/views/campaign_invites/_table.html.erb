@@ -1,0 +1,16 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @campaign_invites.each do |ci| %>
+            <tr>
+                <td><%= ci.email %></td>
+                <td><%= campaign_invite_status(ci) %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
