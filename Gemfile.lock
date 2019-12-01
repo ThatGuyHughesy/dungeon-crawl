@@ -61,6 +61,9 @@ GEM
       zeitwerk (~> 2.1, >= 2.1.8)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    annotate (2.6.5)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     bcrypt (3.1.13)
     bindex (0.8.1)
     bootsnap (1.4.5)
@@ -229,6 +232,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_link_to (~> 1.0.5)
+  annotate
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)

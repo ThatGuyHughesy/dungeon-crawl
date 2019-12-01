@@ -1,0 +1,19 @@
+<div class="form">
+    <%= form_with(model: CampaignInvite.new, url: campaign_campaign_invites_path(@campaign)) do |f| %>
+        <%= f.hidden_field :campaign_id, value: @campaign.id %>
+        <%= f.hidden_field :sender_id, value: current_user.id %>
+        <%= f.hidden_field :pending, value: true %>
+        <div class="field">
+            <%= f.label :email, class: "email" %>
+            <div class="control">
+                <%= f.email_field :email, class: "input", required: "true" %>
+            </div>
+        </div>
+        <div class="field">
+            <div class="control">
+                <%= f.submit "Invite User", class: "button is-link is-fullwidth" %>
+                <!-- TODO add skip/finish button to take you to camapign homepage -->
+            </div>
+        </div>
+    <% end %>
+</div>

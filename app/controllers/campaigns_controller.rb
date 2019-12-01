@@ -25,7 +25,7 @@ class CampaignsController < ApplicationController
     @campaign.users << current_user
 
     if @campaign.save
-      redirect_to @campaign, notice: 'Campaign was successfully created.'
+      redirect_to campaign_campaign_invites_path(@campaign), notice: 'Campaign was successfully created.'
     else
       render :new
     end
