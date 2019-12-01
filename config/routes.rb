@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   constraints CanUserRegister do
     devise_scope :user do
-      get '/user/registration' => 'users/registrations#new', as: 'new_user_registration'
+      get '/user/registration' => 'users/registrations#new'
       post '/user/registration' => 'users/registrations#create'
       put '/user/registration' => 'users/registrations#update'
       patch '/user/registration' => 'users/registrations#update'

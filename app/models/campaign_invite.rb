@@ -16,6 +16,7 @@
 # Indexes
 #
 #  index_campaign_invites_on_campaign_id  (campaign_id)
+#  index_campaign_invites_on_token        (token) UNIQUE
 #
 
 # TODO make email unique for campaign

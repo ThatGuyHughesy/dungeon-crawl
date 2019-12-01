@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_11_09_204539) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["campaign_id"], name: "index_campaign_invites_on_campaign_id"
+    t.index ["token"], name: "index_campaign_invites_on_token", unique: true
   end
 
   create_table "campaigns", force: :cascade do |t|
